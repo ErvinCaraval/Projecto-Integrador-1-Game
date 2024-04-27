@@ -1,2 +1,4 @@
 node_modules/.cache/default-development/*.pack filter=lfs diff=lfs merge=lfs -text
 public/assets/models/world/*.glb filter=lfs diff=lfs merge=lfs -text
+WorldSquidGames.glb filter=lfs diff=lfs merge=lfs -text
+node_modules filter=lfs diff=lfs merge=lfs -text
