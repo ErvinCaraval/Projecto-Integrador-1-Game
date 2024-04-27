@@ -99,12 +99,6 @@ export const Controls = () => {
                 const direction = cameraPosition.sub(avatarPosition).normalize()
                 const newCameraPosition = avatarPosition.add(direction.multiplyScalar(desiredDistance))
                 state.camera.position.copy(newCameraPosition)
-            //     avatar.body.applyImpulse({
-            //         x:0,y:0,z: -0.1 * delta
-            //     },true)
-            //     console.log(avatar.body.translation())
-            //     state.camera.position.z = avatar.body.translation().z + 3;
-            //     controlsRef.current.target.z = avatar.body.translation().z;
             }
         }else{
                 avatar.body?.sleep()
