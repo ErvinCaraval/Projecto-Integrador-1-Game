@@ -21,7 +21,6 @@ export const Controls = () => {
     const [runSound] = useState(new Audio("/assets/sounds/steps.wav"))
     const [play,setPlay] = useState(false);
 
-    console.log("pred")
     useEffect(()=>{
         const unsubscribe = sub(
             (state) => state.forward || state.backward || state.leftward || state.rightward,
