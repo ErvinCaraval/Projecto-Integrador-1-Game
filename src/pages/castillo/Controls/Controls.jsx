@@ -1,5 +1,5 @@
 import { OrbitControls, useKeyboardControls } from '@react-three/drei'
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useAvatar } from '../Context/AvatarContext';
 import { useFrame } from '@react-three/fiber';
 import { useRef } from 'react';
@@ -18,6 +18,9 @@ export const Controls = () => {
     let cameraTarget = new Vector3();
     const desiredDistance = 2;
 
+    const [runSound] = useState(new Audio("/assets/sounds/steps.wav"))
+    const [play,setPlay] = useState(false);
+
     console.log("pred")
     useEffect(()=>{
         const unsubscribe = sub(
@@ -28,6 +31,17 @@ export const Controls = () => {
           );
           return () => unsubscribe();
     },[avatar, setAvatar, sub, get()])
+
+    useEffect(()=>{
+        if(play){
+            runSound.currentTime = 0
+            runSound.volume = Math.random()
+            runSound.play()
+        }else{
+            
+            runSound.pause()
+        }
+    },[play])
 
     const getDirectionOffset = (forward, backward, leftward, rightward) => {
         if (forward && leftward) return Math.PI / 4;
@@ -45,6 +59,7 @@ export const Controls = () => {
         if(forward||backward||leftward||rightward){
             
             if(avatar.body && avatar.ref){
+                setPlay(true)
                 const directionOffset = getDirectionOffset(forward, backward, leftward, rightward)
                 const currentTranslation = avatar.body.translation()
     
@@ -102,6 +117,7 @@ export const Controls = () => {
             }
         }else{
                 avatar.body?.sleep()
+                setPlay(false)
         }
         const pressed = get().back
     })
