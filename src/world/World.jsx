@@ -2,14 +2,14 @@ import { useGLTF, useTexture } from "@react-three/drei"
 import { RepeatWrapping } from "three";
 
 export default function World(props) {
-    const { nodes, materials } = useGLTF("/assets/models/world/WorldSquidGames.glb")
+    const { nodes, materials } = useGLTF("/assets/models/world/Proyecto-integrador-videojuego.glb")
     const PATH = "/assets/textures/floor/";
 
     const propsTexture = useTexture({
-        map: PATH + "coast_sand_01_diff_1k.jpg",
-        normalMap: PATH + "coast_sand_01_nor_gl_1k.jpg",
-        roughnessMap: PATH + "coast_sand_01_rough_1k.jpg",
-        displacementMap: PATH + "coast_sand_01_rough_1k.jpg",
+        map: PATH + "aerial_rocks_01_diff_1k.jpg",
+        normalMap: PATH + "aerial_rocks_01_nor_gl_1k.jpg",
+        roughnessMap: PATH + "aerial_rocks_01_rough_1k.jpg",
+        displacementMap: PATH + "aerial_rocks_01_rough_1k.jpg",
     });
 
     propsTexture.map.repeat.set(4, 64);
@@ -25,16 +25,57 @@ export default function World(props) {
     propsTexture.displacementMap.wrapS = propsTexture.displacementMap.wrapT = RepeatWrapping;
 
     return (
-        <group {...props} dispose={null}>
-            <group>
-                <mesh geometry={nodes.Walls.geometry} material={materials.Material} />
-                <mesh geometry={nodes.Floor.geometry}>
-                    <meshStandardMaterial {...propsTexture}/>
-                </mesh>
-            </group>
+      <group {...props} dispose={null}>
+        <group>
+          {/* <mesh geometry={nodes.Walls.geometry} material={materials.Material} /> */}
+          <mesh receiveShadow={true} geometry={nodes.Floor.geometry}>
+            <meshStandardMaterial {...propsTexture} />
+          </mesh>
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.silla.geometry}
+            material={materials.Rockingchair_01}
+            position={[0, 0.168, 0]}
+          />
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.ukelele.geometry}
+            material={materials.Ukulele_01}
+            position={[0, 0.168, 0]}
+          />
+          <group>
+            <mesh
+              castShadow
+              receiveShadow
+              geometry={nodes.tree_1.geometry}
+              material={nodes.tree_1.material}
+            />
+            <mesh
+              castShadow
+              receiveShadow
+              geometry={nodes.tree_2.geometry}
+              material={materials.leaves_material}
+            />
+            <mesh
+              castShadow
+              receiveShadow
+              geometry={nodes.tree_3.geometry}
+              material={materials.root_material}
+            />
+          </group>
+          <mesh castShadow={true} geometry={nodes.WoodenFence.geometry}>
+            <meshStandardMaterial
+              color={"#FF8E08"}
+              metalness={0}
+              roughness={0.5}
+            />
+          </mesh>
         </group>
+      </group>
     );
 }
 
-useGLTF.preload("/assets/models/world/WorldSquidGames.glb");
+useGLTF.preload("/assets/models/world/Proyecto-integrador-videojuego.glb");
 

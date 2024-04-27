@@ -1,13 +1,17 @@
-import { OrbitControls } from "@react-three/drei";
+import { Environment, EnvironmentMap, OrbitControls } from "@react-three/drei";
 import World from "./world/World";
+import { Color } from "three";
+import Lights from "./lights/lights";
+import Environments from "./environments/environments";
 
 const Experience = () => {
     return (
         <>
-            <ambientLight />
-            <directionalLight position={[10, 10, 5]} />
+            <Lights/>
+            <Environments/>
             <OrbitControls makeDefault />
             <World/>
+
         </>
     )
 }
