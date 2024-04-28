@@ -18,6 +18,11 @@ export default function Environments() {
         inclination={0.2}
         azimuth={180}
         turbidity={100}
+        rayleigh={5}
+        mieCoefficient={0.005}
+        mieDirectionalG={0.8}
+        distance={400}
+        
       />
 
       <Sparkles 

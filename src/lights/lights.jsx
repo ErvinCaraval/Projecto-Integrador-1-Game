@@ -34,9 +34,9 @@ const {intensityHL, colorHL} = useControls("Hemisphere Light", optionHemisphereL
             />
             <directionalLight
                 castShadow={true}
-                position={[5, 10, 0]} 
-                color={new Color("#E6EA6E")}
-                intensity={3}
+                position={[0, 5, -90]} 
+                color={new Color("#FFB200")}
+                intensity={4}
             />
 
             {/* <pointLight

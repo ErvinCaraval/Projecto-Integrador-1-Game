@@ -32,8 +32,8 @@ export default function World(props) {
             <meshStandardMaterial {...propsTexture} />
           </mesh>
           <mesh
-            castShadow
-            receiveShadow
+            castShadow 
+            receiveShadow = {true}
             geometry={nodes.silla.geometry}
             material={materials.Rockingchair_01}
             position={[0, 0.168, 0]}
