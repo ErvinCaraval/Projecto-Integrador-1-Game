@@ -14,10 +14,3 @@ canvas{
     touch-action: none;
 }
 
-.welcome-text{
-    background-color: black;
-    color: white;
-    padding: 1rem;
-    border-radius: 2rem;
-    user-select: none;
-}
