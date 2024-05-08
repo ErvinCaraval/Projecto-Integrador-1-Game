@@ -15,7 +15,7 @@ export default function World(props) {
                     <meshStandardMaterial opacity={0.001} transparent={true} />
                     </mesh>
                 </RigidBody>
-                <RigidBody type="fixed" colliders={false}>
+                {/* <RigidBody type="fixed" colliders={false}>
                         <mesh
                             onClick={(e) => e.stopPropagation()}
                             castShadow={true}
@@ -24,16 +24,18 @@ export default function World(props) {
                             <CuboidCollider args={[0.2, 0.5, 47.5]} position={[-3.8, 0.5, -47]} />
                             <CuboidCollider args={[0.2, 0.5, 47.5]} position={[4.2, 0.5, -47]} />
                         </mesh>
-                </RigidBody>
-                <RigidBody colliders={false} type="fixed" >
-                    <mesh onClick={(e) => e.stopPropagation()} geometry={nodes.Tree.geometry} material={materials.treeMaterial} position={[0, 0, -96]} />
+                </RigidBody> */}
+                 <RigidBody colliders="trimesh" type="fixed" >
+                    <mesh onClick={(e) => e.stopPropagation()} geometry={nodes.Tree008.geometry} material={materials.treeMaterial} position={[0, 0, 0]} />
                     <CylinderCollider args={[1, 0.5]} position={[0, 1, -96]} />
-                </RigidBody>
+                </RigidBody> 
 
                 <RigidBody colliders="trimesh" type="fixed">
                 <mesh geometry={nodes.home004.geometry} material={materials.Material} />
                 </RigidBody>
                 
+                
+
             </group>
         </group>
     );
