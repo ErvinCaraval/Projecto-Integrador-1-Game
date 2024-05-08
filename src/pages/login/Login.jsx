@@ -8,7 +8,7 @@ export default function Login() {
 
     const onHandleButtonLogin = async () => {
         await auth.loginWithGoogle()
-        .then((res)=>navigate('/level1'))
+        .then((res)=>navigate('/level2'))
         .catch((error)=>console.error(error))
     }
 

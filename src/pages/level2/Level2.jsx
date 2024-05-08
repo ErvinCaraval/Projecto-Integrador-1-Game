@@ -20,7 +20,7 @@ import { createUser, readUser } from "../../db/users-collection";
 import { useAtom } from "jotai";
 import { EcctrlJoystick } from "ecctrl";
 
-export default function Level1() {
+export default function Level2() {
     const map = useMovements();
     const auth = useAuth()
     const [players] = useAtom(playersAtom);

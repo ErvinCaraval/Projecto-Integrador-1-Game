@@ -29,6 +29,11 @@ export default function World(props) {
                     <mesh onClick={(e) => e.stopPropagation()} geometry={nodes.Tree.geometry} material={materials.treeMaterial} position={[0, 0, -96]} />
                     <CylinderCollider args={[1, 0.5]} position={[0, 1, -96]} />
                 </RigidBody>
+
+                <RigidBody colliders="trimesh" type="fixed">
+                <mesh geometry={nodes.home004.geometry} material={materials.Material} />
+                </RigidBody>
+                
             </group>
         </group>
     );
